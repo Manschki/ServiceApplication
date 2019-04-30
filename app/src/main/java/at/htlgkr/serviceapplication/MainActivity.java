@@ -23,6 +23,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.List;
+
 /**
  * Muss in der AndroidManifest.xml gesetzt werden:
  * android:usesCleartextTraffic="true"
@@ -169,8 +171,12 @@ public class MainActivity extends AppCompatActivity implements IServiceDownloadA
         adapter.addAll(this.model.getServices());
     }
 
-    public void employeeAdded() {
-
+    public void employeeAdded(Employee e) {
+        /*List<Employee> emps = model.getEmployees();
+        emps.add(e);
+        model.setEmployees(emps);*/
+        ServiceDownloadTask sd = new ServiceDownloadTask(this);
+        sd.execute();
 
     }
 

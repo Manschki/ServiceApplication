@@ -59,7 +59,7 @@ public class CreateEmployeeActivity extends AppCompatActivity implements IServic
             e.printStackTrace();
         }
 
-        ServiceCreateTask sc = new ServiceCreateTask(this, eName.getText().toString(), d, eLat.getText().toString(), eLong.getText().toString(), emp);
+        ServiceCreateTask sc = new ServiceCreateTask(this, eName.getText().toString(), d, eLong.getText().toString(), eLat.getText().toString(), emp);
         sc.execute();
     }
 

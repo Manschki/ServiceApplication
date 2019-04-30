@@ -74,6 +74,13 @@ public class GuiTest {
 
     @Test
     public void test_gui_loadData_correctData() throws ParseException {
+	    Backend b = new Backend();
+        try {
+            b.getAllServices();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText("Daten abrufen")).perform(click());
 
@@ -224,8 +231,9 @@ public class GuiTest {
 
         onView(withId(R.id.service_name)).perform(typeText("Dienst 1"));
         onView(withId(R.id.service_date)).perform(typeText("12.12.2012 12:00"));
-        onView(withId(R.id.service_latitude)).perform(typeText("1.0"));
         onView(withId(R.id.service_longitude)).perform(typeText("2.0"));
+        onView(withId(R.id.service_latitude)).perform(typeText("1.0"));
+
 
         Espresso.closeSoftKeyboard();
 
@@ -305,7 +313,7 @@ public class GuiTest {
     }
 
     @Test
-    public void test_gui_deleteService_correctData() throws ParseException {
+    public void test_gui_deleteService_correctData() throws ParseException, IOException {
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText("Daten abrufen")).perform(click());
 
@@ -330,6 +338,9 @@ public class GuiTest {
         ListTester<Service> listTester = new ListTester<>();
 
         assertTrue(listTester.listsEqual(actual, getServiceAssertData(false)));
+
+        Backend backend = new Backend();
+        backend.getAllServices(); // reset
     }
 
     public static ViewAction waitFor(final long millis) {

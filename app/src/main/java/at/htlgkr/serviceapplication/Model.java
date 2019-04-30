@@ -16,16 +16,28 @@ public class Model {
     public Model(List<Employee> employees, List<ServiceResource> serviceResources) throws ParseException {
         this.employees = employees;
         services = new LinkedList<>();
+        //SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
         for (ServiceResource s:
              serviceResources) {
             //int id, String name, Employee employee, Date date, String longitude, String latitude
             //nt id, String name, String longitude, String latitude
             SimpleDateFormat sdf = new SimpleDateFormat(Model.DATE_FORMAT);
             Date d = sdf.parse(s.getDate());
-            services.add(new Service(s.getId(), s.getName(), new Employee(s.getId(), s.getName(), s.getLongitude(), s.getLatitude()), d, s.getLongitude(), s.getLatitude()));
+            Employee employee = null;
+            for (Employee e:
+                 this.employees) {
+                if(e.getId() == s.getEmployeeId()){
+                    employee = e;
+                }
+            }
+            //int id, String name, Employee employee, Date date, String longitude, String latitude
+            services.add(new Service(s.getId(), s.getName(), employee, d, s.getLongitude(), s.getLatitude()));
         }
     }
 
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
 
     public List<Employee> getEmployees() {
         return employees;
@@ -37,12 +49,13 @@ public class Model {
 
     public void deleteService(int serviceId) {
         // Implementieren Sie diese Methode
+        Service toDelete = null;
         for (Service s:
              services) {
             if(s.getId() == serviceId){
-                services.remove(s);
+                toDelete = s;
             }
         }
-        //services.remove(serviceId);
+        services.remove(toDelete);
     }
 }
