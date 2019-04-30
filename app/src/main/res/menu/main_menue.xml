@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/retrieve_data"
+        android:title="Daten abrufen"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/new_employee"
+        android:title="Neuer Mitarbeiter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/new_service"
+        android:title="Neuer Dienst"
+        app:showAsAction="never" />
+</menu>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/new_service_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NEUEN DIENST ANLEGEN" />
+
+        <EditText
+            android:id="@+id/service_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Dienstname" />
+        <EditText
+            android:id="@+id/service_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Datum (dd.MM.yyyy HH:mm)" />
+
+        <EditText
+            android:id="@+id/service_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="latitude" />
+
+        <EditText
+            android:id="@+id/service_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="longitude" />
+
+
+        <Spinner
+            android:id="@+id/service_employee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_employee_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vorschlag abrufen" />
+
+        <TextView
+            android:id="@+id/tv_employee_suggestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_create_new_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Speichern"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
